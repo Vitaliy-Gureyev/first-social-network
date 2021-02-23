@@ -1,0 +1,24 @@
+.app-wrapper {
+    width: 1400px;
+    margin: 0 auto;
+    grid-template-areas:
+            "h h"
+            "n m";
+
+    display: grid;
+    grid-template-rows: 50px 1fr;
+    grid-template-columns: 2fr 10fr;
+}
+
+.app-wrapper-content {
+
+    grid-area: m;
+    background-color: #f1f5f8;
+    font-family: Roboto;
+    padding: 5px;
+
+}
+
+
+
+

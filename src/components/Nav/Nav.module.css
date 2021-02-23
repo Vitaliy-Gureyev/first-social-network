@@ -1,0 +1,30 @@
+.nav {
+    grid-area: n;
+    background-color: #f8fafc;
+    font-family: "Roboto Medium";
+    font-size: 12px;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: 230px;
+    height: auto;
+    text-align: center;
+
+
+
+}
+
+.item a {
+    line-height: 4em;
+    color: black;
+    text-decoration: none;
+
+}
+
+.item a.activeLink {
+    background:url("https://i.ibb.co/GCW0mK5/navbarselect.png");
+
+
+}
+
+/*    background: url("https://i.ibb.co/GCW0mK5/navbarselect.png");
+    background-size: 300px 100px;*/
