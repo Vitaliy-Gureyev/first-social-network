@@ -1,13 +1,16 @@
+import {rerenderEntireTree} from "../render";
+
+
 let state = {
     profilePage: {
         posts: [
-            {id: '1', message: 'Hello', count: '12'},
-            {id: '2', message: 'How are you', likesCount: '11'},
-            {id: '3', message: 'Life is great', likesCount: '0'},
-            {id: '4', message: 'Sun shine', likesCount: '5'},
-            {id: '5', message: 'Yo', likesCount: '12'},
-            {id: '6', message: 'Wats up', likesCount: '12'},
-            {id: '7', message: 'Kiks', likesCount: '12'},
+            {id: 1, message: 'Hello', count: 12},
+            {id: 2, message: 'How are you', count: 11},
+            {id: 3, message: 'Life is great', count: 0},
+            {id: 4, message: 'Sun shine', count: 5},
+            {id: 5, message: 'Yo', count: 12},
+            {id: 6, message: 'Wats up', count: 12},
+            {id: 7, message: 'Kiks', count: 12},
         ],
     },
     dialogsPage: {
@@ -31,5 +34,15 @@ let state = {
         ],
     }
 }
+
+export let addPost = (postMessage) => {
+    let newPost = {
+        id: 5,
+        message: postMessage,
+        count: 0
+    };
+    state.profilePage.posts.unshift (newPost);
+    rerenderEntireTree(state);
+};
 
 export default state
