@@ -4,7 +4,6 @@ import Post from './Post/Post'
 import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/state";
 
 const MyPosts = (props) => {
-
     let postsElements = props.posts.map(post => <Post message={post.message} count={post.count}/>)
 
     let newPostElement = React.createRef ();
