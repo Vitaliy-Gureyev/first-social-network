@@ -11,7 +11,7 @@ let initialState = {
         {id: 6, message: 'Wats up', count: 12},
         {id: 7, message: 'Kiks', count: 12},
     ],
-        newPostText: ''
+    newPostText: ''
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -24,8 +24,8 @@ const profileReducer = (state = initialState, action) => {
             };
             return {
                 ...state,
-            posts: [(newPost), ...state.posts],
-            newPostText: ''
+                posts: [(newPost), ...state.posts],
+                newPostText: ''
             }
         }
         case 'UPDATE-NEW-POST-TEXT': {
@@ -33,7 +33,7 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 newPostText: action.newText
             }
-            }
+        }
         default:
             return state;
     }
