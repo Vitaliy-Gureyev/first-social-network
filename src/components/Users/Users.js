@@ -1,19 +1,27 @@
-import React from 'react';
-import styles from './users.module.css'
-import * as axios from "axios";
+import React from 'react'
+import styles from "./users.module.css";
 
-class Users extends React.Component {
 
-    componentDidMount() {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users')
-            .then(response => {
-                this.props.setUsers(response.data.items)
-            });
+let Users = (props) => {
+
+    let pagesCount = Math.ceil(props.props.totalUsersCount / props.props.pageSize);
+
+    let pages = [];
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i);
     }
 
-    render() {
-        return <div>
-            {this.props.users.map(u => <div key={u.id}>
+    return <div>
+        {pages.map(p => {
+            return <span className={props.props.currentPage === p && styles.selectedPage}
+                         onClick={(e) => {
+                             props.onPageChanged(p);
+                         }}>{p}</span>
+        })}
+
+    </div>
+    {
+        props.users.map(u => <div key={u.id}>
             <span>
                 <div>
                     <img src={u.photos.small != null ? u.photos.small : "https://i.ibb.co/km2ndtc/standart-User.jpg"}
@@ -22,14 +30,14 @@ class Users extends React.Component {
                 <div>
                     {u.followed
                         ? <button onClick={() => {
-                            this.props.unfollow(u.id)
+                            props.props.unfollow(u.id)
                         }}> Unfollow</button>
                         : <button onClick={() => {
-                            this.props.follow(u.id)
+                            props.props.follow(u.id)
                         }}> Follow</button>}
                 </div>
             </span>
-                <span>
+            <span>
                 <span>
                     <div>{u.name}</div>
                      <div>{u.status}</div>
@@ -43,8 +51,7 @@ class Users extends React.Component {
                     </div>
                 </span>
             </span>
-            </div>)}
-        </div>
+        </div>)
     }
 }
 
