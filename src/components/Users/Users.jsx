@@ -4,7 +4,7 @@ import styles from "./users.module.css";
 
 let Users = (props) => {
 
-    let pagesCount = Math.ceil(props.props.totalUsersCount / props.props.pageSize);
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
@@ -13,15 +13,13 @@ let Users = (props) => {
 
     return <div>
         {pages.map(p => {
-            return <span className={props.props.currentPage === p && styles.selectedPage}
+            return <span className={props.currentPage === p && styles.selectedPage}
                          onClick={(e) => {
                              props.onPageChanged(p);
                          }}>{p}</span>
         })}
 
-    </div>
-    {
-        props.users.map(u => <div key={u.id}>
+        {props.users.map(u => <div key={u.id}>
             <span>
                 <div>
                     <img src={u.photos.small != null ? u.photos.small : "https://i.ibb.co/km2ndtc/standart-User.jpg"}
@@ -30,10 +28,10 @@ let Users = (props) => {
                 <div>
                     {u.followed
                         ? <button onClick={() => {
-                            props.props.unfollow(u.id)
+                            props.unfollow(u.id)
                         }}> Unfollow</button>
                         : <button onClick={() => {
-                            props.props.follow(u.id)
+                            props.follow(u.id)
                         }}> Follow</button>}
                 </div>
             </span>
@@ -51,8 +49,7 @@ let Users = (props) => {
                     </div>
                 </span>
             </span>
-        </div>)
+        </div>)}
+    </div>
     }
-}
-
 export default Users;
