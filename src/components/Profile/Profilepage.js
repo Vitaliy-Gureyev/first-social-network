@@ -3,13 +3,14 @@ import classes from './Profilepage.module.css'
 import MyPosts from './MyPosts/MyPosts'
 import ProfileInfo from "./Profile Info/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import Preloader from "../Common/Preloader/Preloader";
 
 
-const Profilepage = (props) => {
+const ProfilePage = (props) => {
     return <div>
-        <ProfileInfo/>
+        <ProfileInfo profile={props.profile}/>
         <MyPostsContainer />
     </div>
 }
 
-export default Profilepage;
+export default ProfilePage;
