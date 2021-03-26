@@ -1,18 +1,20 @@
 import React from 'react';
 import classes from './ProfileInfo.module.css'
 import Preloader from "../../Common/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus.jsx"
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader/>
     }
     return <div>
-        <div className={classes.img}>
+        {/*<div className={classes.img}>
             <img src='https://i.ibb.co/mTfnGY3/background-crop.jpg'/>
-        </div>
+        </div>*/}
         <div className={classes.descriptionBlock}>
             <div>{props.profile.fullName}</div>
             <div>{props.profile.photos.large === null ? <img src='https://i.ibb.co/km2ndtc/standart-User.jpg'/> : <img src={props.profile.photos.large}/>}</div>
+            <ProfileStatus status="hello world"/>
             <div>Про меня: {props.profile.aboutMe}</div>
             <div>Контакты
                 <div>facebook: {props.profile.contacts.facebook}</div>
