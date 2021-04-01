@@ -9,6 +9,8 @@ import {
     updateNewPostTextActionCreator
 } from "../../redux/dialogs-reducer.js";
 import {Field, reduxForm} from "redux-form";
+import {Textarea} from "../Common/FormsControls/FormsControls";
+import {maxLengthCreator, requiredField} from "../../utils/Validators/validators";
 
 const Dialogs = (props) => {
     let state = props.dialogsPage;
@@ -36,11 +38,13 @@ const Dialogs = (props) => {
         </div>
     )
 };
+
+const maxLength50 = maxLengthCreator (2);
 const AddMessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit} className={classes.addMessage} >
             <p>Отправить сообщение:</p>
-            <Field component="textarea" name="newMessageBody" placeholder="type your message here"/>
+            <Field component={Textarea} name="newMessageBody" placeholder="type your message here" validate={[maxLength50]}/>
             <button>Add Post
             </button>
         </form>
