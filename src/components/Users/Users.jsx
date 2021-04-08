@@ -1,9 +1,6 @@
 import React from 'react'
 import styles from "./users.module.css";
-import {NavLink, Redirect} from "react-router-dom";
-import * as axios from "axios";
-import {toggleIsFollowingProgress} from "../../redux/users-reducer";
-import {userAPI} from "../../api/Api";
+import {NavLink} from "react-router-dom";
 
 
 let Users = (props) => {

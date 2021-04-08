@@ -7,9 +7,7 @@ import {
 } from '../../redux/users-reducer';
 import Users from './Users';
 import Preloader from "../Common/Preloader/Preloader";
-import {Redirect} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
-import Dialogs from "../Dialogs/Dialogs";
 import {compose} from "redux";
 
 
@@ -54,7 +52,6 @@ let mapStateToProps = (state) => {
 
 
 export default compose(
-    withAuthRedirect,
     connect(mapStateToProps, {
         follow,
         unfollow,
