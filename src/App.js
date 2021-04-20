@@ -10,9 +10,10 @@ import UsersContainer from "./components/Users/UsersContainer";
 import ProfilepageContainer from "./components/Profile/ProfilepageContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/login/Login";
-import {connect} from "react-redux";
+import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./components/Common/Preloader/Preloader";
+import store from "./redux/redux-store";
 
 class App extends React.Component {
 
@@ -48,4 +49,13 @@ const mapStateToProps = (state) => ({
     initialized: state.app.initialized
 })
 
-export default connect(mapStateToProps, {initializeApp})(App);
+const AppContainer = connect(mapStateToProps, {initializeApp})(App);
+
+const MaineApp = (props) => {
+    return <BrowserRouter>
+        <Provider store={store}>
+            <AppContainer/>
+        </Provider>
+    </BrowserRouter>
+}
+export default MaineApp

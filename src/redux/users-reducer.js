@@ -79,40 +79,41 @@ export const toggleIsFollowingProgress = (isFetching, userId) => ({
 });
 
 export const requestUsers = (page, pageSize) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleIsFetching(true));
         dispatch(setCurrentPage(page));
-        userAPI.getUsers(page, pageSize).then(data => {
-            dispatch(toggleIsFetching(false));
-            dispatch(setUsers(data.items));
-            dispatch(setUsersTotalCount(data.totalCount));
-        });
+        let data = await userAPI.getUsers(page, pageSize);
+
+        dispatch(toggleIsFetching(false));
+        dispatch(setUsers(data.items));
+        dispatch(setUsersTotalCount(data.totalCount));
+
     }
 }
 
+const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) =>{
+
+    dispatch(toggleIsFollowingProgress(true, userId))
+    let response = await apiMethod(userId)
+    if (response.data.resultCode == 0) {
+        dispatch(actionCreator(userId))
+    }
+    dispatch(toggleIsFollowingProgress(false, userId))
+}
+
 export const follow = (userId) => {
-    return (dispatch) => {
-        dispatch(toggleIsFollowingProgress(true, userId))
-        userAPI.follow(userId)
-            .then(response => {
-                if (response.data.resultCode == 0) {
-                    dispatch(followSuccess(userId))
-                }
-                dispatch(toggleIsFollowingProgress(false, userId))
-            });
+    return async (dispatch) => {
+        let apiMethod = userAPI.follow.bind(userAPI)
+        let actionCreator = followSuccess
+        followUnfollowFlow(dispatch, userId, apiMethod, actionCreator)
     }
 }
 
 export const unfollow = (userId) => {
-    return (dispatch) => {
-        dispatch(toggleIsFollowingProgress(true, userId))
-        userAPI.unfollow(userId)
-            .then(response => {
-                if (response.data.resultCode == 0) {
-                    dispatch(unfollowSuccess(userId))
-                }
-                dispatch(toggleIsFollowingProgress(false, userId))
-            });
+    return async (dispatch) => {
+        let apiMethod = userAPI.unfollow.bind(userAPI)
+        let actionCreator = unfollowSuccess
+        followUnfollowFlow(dispatch, userId, apiMethod, actionCreator)
     }
 }
 
