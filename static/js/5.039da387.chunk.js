@@ -1,0 +1,2 @@
+(this.webpackJsonpreact_ponchik_home1=this.webpackJsonpreact_ponchik_home1||[]).push([[5],{292:function(c,e,n){},294:function(c,e,n){"use strict";n.r(e);n(1),n(292);var t=n(0);e.default=function(){return Object(t.jsx)("div",{children:"News"})}}}]);
+//# sourceMappingURL=5.039da387.chunk.js.map

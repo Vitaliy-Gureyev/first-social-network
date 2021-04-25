@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/first-social-network/static/css/main.be350634.chunk.css",
+    "main.js": "/first-social-network/static/js/main.a66ac7ee.chunk.js",
+    "main.js.map": "/first-social-network/static/js/main.a66ac7ee.chunk.js.map",
+    "runtime-main.js": "/first-social-network/static/js/runtime-main.46d285d6.js",
+    "runtime-main.js.map": "/first-social-network/static/js/runtime-main.46d285d6.js.map",
+    "static/js/2.6ea3188b.chunk.js": "/first-social-network/static/js/2.6ea3188b.chunk.js",
+    "static/js/2.6ea3188b.chunk.js.map": "/first-social-network/static/js/2.6ea3188b.chunk.js.map",
+    "static/css/3.4fb51d3c.chunk.css": "/first-social-network/static/css/3.4fb51d3c.chunk.css",
+    "static/js/3.041948f1.chunk.js": "/first-social-network/static/js/3.041948f1.chunk.js",
+    "static/js/3.041948f1.chunk.js.map": "/first-social-network/static/js/3.041948f1.chunk.js.map",
+    "static/css/4.afd7172b.chunk.css": "/first-social-network/static/css/4.afd7172b.chunk.css",
+    "static/js/4.38a4b3b6.chunk.js": "/first-social-network/static/js/4.38a4b3b6.chunk.js",
+    "static/js/4.38a4b3b6.chunk.js.map": "/first-social-network/static/js/4.38a4b3b6.chunk.js.map",
+    "static/css/5.afd7172b.chunk.css": "/first-social-network/static/css/5.afd7172b.chunk.css",
+    "static/js/5.039da387.chunk.js": "/first-social-network/static/js/5.039da387.chunk.js",
+    "static/js/5.039da387.chunk.js.map": "/first-social-network/static/js/5.039da387.chunk.js.map",
+    "static/js/6.7c4989c4.chunk.js": "/first-social-network/static/js/6.7c4989c4.chunk.js",
+    "static/js/6.7c4989c4.chunk.js.map": "/first-social-network/static/js/6.7c4989c4.chunk.js.map",
+    "index.html": "/first-social-network/index.html",
+    "static/css/3.4fb51d3c.chunk.css.map": "/first-social-network/static/css/3.4fb51d3c.chunk.css.map",
+    "static/css/4.afd7172b.chunk.css.map": "/first-social-network/static/css/4.afd7172b.chunk.css.map",
+    "static/css/5.afd7172b.chunk.css.map": "/first-social-network/static/css/5.afd7172b.chunk.css.map",
+    "static/css/main.be350634.chunk.css.map": "/first-social-network/static/css/main.be350634.chunk.css.map",
+    "static/js/2.6ea3188b.chunk.js.LICENSE.txt": "/first-social-network/static/js/2.6ea3188b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.46d285d6.js",
+    "static/js/2.6ea3188b.chunk.js",
+    "static/css/main.be350634.chunk.css",
+    "static/js/main.a66ac7ee.chunk.js"
+  ]
+}
