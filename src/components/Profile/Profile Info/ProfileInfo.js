@@ -1,20 +1,26 @@
 import React from 'react';
 import classes from './ProfileInfo.module.css'
 import Preloader from "../../Common/Preloader/Preloader";
-import ProfileStatus from "./ProfileStatus.jsx"
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
         return <Preloader/>
     }
+
+    const mainePhotoSelected = (e) => {
+        if (e.target.files.length) {
+            props.savePhoto(e.target.files[0])
+        }
+    }
+
     return <div>
-        {/*<div className={classes.img}>
-            <img src='https://i.ibb.co/mTfnGY3/background-crop.jpg'/>
-        </div>*/}
         <div className={classes.descriptionBlock}>
             <div>{props.profile.fullName}</div>
-            <div>{props.profile.photos.large === null ? <img src='https://i.ibb.co/km2ndtc/standart-User.jpg'/> : <img src={props.profile.photos.large}/>}</div>
+            <div>{props.profile.photos.large === null
+                ? <img src='https://i.ibb.co/km2ndtc/standart-User.jpg'/>
+                : <img src={props.profile.photos.large}/>}</div>
+            {props.isOwner && <input type="file" className="change-photo-button" onChange={mainePhotoSelected}/>}
             <div> status: <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
             </div>
             <div>Про меня: {props.profile.aboutMe}</div>
@@ -28,7 +34,7 @@ const ProfileInfo = (props) => {
                 <div>mainLink: {props.profile.contacts.mainLink}</div>
             </div>
             <div>
-                Ищу работу {props.profile.lookingForAJob === true? '✅': '☒'} <br/>
+                Ищу работу {props.profile.lookingForAJob === true ? '✅' : '☒'} <br/>
                 Пожелания к работе: {props.profile.lookingForAJobDescription}
             </div>
         </div>
